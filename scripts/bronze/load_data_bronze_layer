@@ -1,3 +1,21 @@
+/*===============================================
+Create and Execute stored procedure for loading data 
+from sources(ERP and CRM) to the bronze layer
+=================================================
+Script purpose : 
+	-This stored procedure(bronze.load_bronze) loads data from csv files into bronze layer.
+	-This procedure turncates the bronze tables : make them empty. before inserting.
+	-This procedure insert data to tables using Bulk insert.
+	-This procedure give the duration (second) for each table insert and give also the duration(second) for all the batch .
+Parameters : None. 
+			this stored procedure doesn't use any parameters. 
+Returned values : None
+			this stored procedure doesn't return any values. 
+For call used :
+			EXEC bronze.load_bronze;
+WARNING:
+	-Attention: running this script will make the tables empty, and then inserting from sources.
+*/
 USE DW_Sales;
 GO
 EXEC bronze.load_bronze
