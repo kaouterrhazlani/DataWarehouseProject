@@ -70,9 +70,10 @@ For more details, refer to [docs/requirements.md](mydocuments/requirements.md).
 Data warehouse sql project/
 │
 ├── mydatasets/                           # Raw datasets used for the project (ERP and CRM data)
-│
+│  ├── source_crm
+│  ├── source_erp
 ├── mydocuments/                                 # Project documentation and architecture details
-|   ├── Data Model diagram bronze layer.drawio   # Draw.io file for data source models. 
+|   ├── Source data Model diagram.drawio         # Draw.io file for data source models. 
 │   ├── etl.drawio                               # Draw.io file shows all different techniquies and methods of ETL
 │   ├── data_architecture.drawio                 # Draw.io file shows the project's architecture
 │   ├── data_catalog.md                          # Catalog of datasets, including field descriptions and metadata
