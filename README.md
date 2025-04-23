@@ -69,7 +69,7 @@ For more details, refer to [docs/requirements.md](mydocuments/requirements.md).
 ```
 Data warehouse sql project/
 │
-├── mydatasets/                           # Raw datasets used for the project (ERP and CRM data)
+├── datasets/                           # Raw datasets used for the project (ERP and CRM data)
 │  ├── source_crm
 │  ├── source_erp
 ├── mydocuments/                                 # Project documentation and architecture details
