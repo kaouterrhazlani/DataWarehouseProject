@@ -40,6 +40,7 @@ CREATE TABLE silver.crm_prd_info(
 	prd_line NVARCHAR(50),
 	prd_start_dt DATE,
 	prd_end_dt DATE,
+	prd_last_update_dt DATE,
 	dwh_create_date DATETIME2 DEFAULT GETDATE()
 );
 --
