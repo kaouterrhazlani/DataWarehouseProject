@@ -28,7 +28,7 @@ This project involves:
 ## 🛠️ Important Links & Tools:
 
 Everything is for Free!
-- **[Datasets](mydatasets/):** Access to the project dataset (csv files).
+- **[Datasets](datasets/):** Access to the project dataset (csv files).
 - **[SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads):** for hosting SQL database.
 - **[SQL Server Management Studio (SSMS)](https://learn.microsoft.com/fr-fr/ssms/download-sql-server-management-studio-ssms):** GUI for managing and interacting with databases.
 - **[Git Repository](https://github.com/):** Set up a GitHub account and repository to manage, version, and collaborate on code efficiently.
@@ -63,34 +63,43 @@ Develop SQL-based analytics to deliver detailed insights into:
 
 These insights empower stakeholders with key business metrics, enabling strategic decision-making.  
 
-For more details, refer to [docs/requirements.md](mydocuments/requirements.md).
+For more details, refer to [mydocuments/requirements.md](mydocuments/requirements.md).
 
 ## 📂 Repository Structure
 ```
 Data warehouse sql project/
 │
-├── datasets/                           # Raw datasets used for the project (ERP and CRM data)
-│  ├── source_crm
-│  ├── source_erp
-├── mydocuments/                                 # Project documentation and architecture details
-|   ├── Source data Model diagram.drawio         # Draw.io file for data source models. 
-│   ├── data_architecture.drawio                 # Draw.io file shows the project's architecture
-│   ├── data_flow.drawio                         # Draw.io file for the data flow diagram
-│   ├── data_models.drawio                       # Draw.io file for data models (star schema)
-│   ├── data_catalog.md                          # Catalog of datasets, including field descriptions and metadata
-│   ├── naming-conventions.md                    # Consistent naming guidelines for tables, columns, and files
+├── datasets/                                      # Raw datasets used in the project (ERP and CRM sources)
+│  ├── source_crm                                   # Data from the CRM system
+│  ├── source_erp                                   # Data from the ERP system
 │
-├── scripts/                            # SQL scripts for ETL and transformations
-│   ├── bronze/                         # Scripts for extracting and loading raw data
-│   ├── silver/                         # Scripts for cleaning and transforming data
-│   ├── gold/                           # Scripts for creating analytical models
+├── mydocuments/                                   # Project documentation and architecture diagrams
+│   ├── data catalog.md                             # Dataset catalog including field descriptions and metadata         
+│   ├── data integration diagram.drawio             # Source file for the data integration diagram (created in Draw.io)
+│   ├── data integration diagram.png                # Exported image of the data integration diagram
+│   ├── data_architecture.drawio                    # Draw.io file showing the overall data warehouse architecture
+│   ├── data_architecture.png                       # Exported image of the data architecture diagram
+│   ├── data_flow_diagram.drawio                    # Draw.io file for data flow diagram
+│   ├── data_flow_diagram.png                       # Exported image of the data flow diagram
+│   ├── data_model_diagram(start_schema).drawio     # Star schema data model (Draw.io source file)
+│   ├── data_model_diagram(start_schema).png        # Exported image of the star schema data model
+│   ├── naming-conventions.md                       # Guidelines for consistent naming of tables, columns, and files
 │
-├── tests/                              # Test scripts and quality files
-│  ├── silver/   
-├── README.md                           # Project overview and instructions
-├── LICENSE                             # License information for the repository
-├── .gitignore                          # Files and directories to be ignored by Git
-└── requirements.txt                    # Dependencies and requirements for the project
+├── scripts/                                        # SQL scripts for ETL process and data transformations
+│   ├── bronze/                                     # Scripts for raw data ingestion (from source to staging/bronze layer)
+│   ├── silver/                                     # Scripts for cleaned and transformed data (intermediate/silver layer)
+│   ├── gold/                                       # Scripts for building analytical models (final/gold layer)
+│   ├── init_DW_Sales.sql                           # Initial SQL script to create the data warehouse sales structure
+│
+├── the details transformations and test/           # Detailed transformation scripts and test/quality validation files
+│   ├── gold/                                       # Gold layer transformations with related test.
+│   ├── silver/                                     # Silver layer transformations with related test.
+│
+├── README.md                                       # Project overview, setup instructions, and usage guide
+├── LICENSE                                         # Licensing information for open-source or distribution
+├── .gitignore                                      # Git ignored files and folders (e.g., temp files, environment configs)
+└── requirements.md                                 # List of dependencies, tools, and requirements needed for the project
+
 ```
 ---
 ---
