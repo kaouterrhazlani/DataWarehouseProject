@@ -10,18 +10,18 @@ This view contains information about customers, joining data from CRM and ERP so
 
 ### Columns:
 
-| Column Name        | Data Type     | Description                                                                                   |
-|--------------------|-------------- |-----------------------------------------------------------------------------------------------|
-| `customer_key`     | BIGINT        | Surrogate key for the customer. Automatically generated to uniquely identify each customer.   |
-| `customer_id`      | INT           | Business key for the customer from the CRM system.                                            |
-| `customer_number`  | NVARCHAR      | Customer number from the CRM system.                                                          |
-| `first_name`       | NVARCHAR      | Customer's first name from the CRM system.                                                    |
-| `last_name`        | NVARCHAR      | Customer's last name from the CRM system.                                                     |
-| `country`          | NVARCHAR      | Country of the customer from ERP system.                                                    |
-| `marital_status`   | NVARCHAR      | Customer's marital status from CRM system.                                                  |
-| `gender`           | NVARCHAR      | Customer's gender, determined based on data from CRM and ERP systems.                         |
-| `birthdate`        | DATE          | Customer's birthdate from ERP system..                                                                         |
-| `create_date`      | DATE          | Date when the customer record was created in the CRM system.                                  |
+| Column Name        | Data Type     | Description                                                                                    |
+|--------------------|-------------- |------------------------------------------------------------------------------------------------|
+| `customer_key`     | BIGINT        | Surrogate key for the customer. Automatically generated to uniquely identify each customer.    |
+| `customer_id`      | INT           | A unique numerical business key for the customer, from the CRM system.                         |
+| `customer_number`  | NVARCHAR      | Alphanumeric ustomer number, from the CRM system.                                              |
+| `first_name`       | NVARCHAR      | Customer's first name, from the CRM system.                                                    |
+| `last_name`        | NVARCHAR      | Customer's last name, from the CRM system.                                                     |
+| `country`          | NVARCHAR      | Country of the customer, from ERP system.('CANADA')                                            |
+| `marital_status`   | NVARCHAR      | Customer's marital status, from CRM system.('MARRIED','SINGLE')                                |
+| `gender`           | NVARCHAR      | Customer's gender, determined based on data, from CRM and ERP systems. ('MALE','FEMALE','n\a') |
+| `birthdate`        | DATE          | Customer's birthdate,from ERP system.(YYYY-MM-DD , 1997-12-01)                                 |
+| `create_date`      | DATE          | Date when the customer record was created, from the CRM system.                                |
 
 ---
 
@@ -34,16 +34,16 @@ This view contains information about products, combining details from the CRM an
 | Column Name                | Data Type    | Description                                                                                 |
 |----------------------------|--------------|---------------------------------------------------------------------------------------------|
 | `product_key`              | BIGINT       | Surrogate key for the product. Automatically generated to uniquely identify each product.   |
-| `product_id`               | INT          | Business key for the product from the CRM system.                                           |
-| `product_number`           | NVARCHAR     | Product number from the CRM system.                                                         |
-| `product_name`             | NVARCHAR     | Name of the product from the CRM system.                                                    |
-| `category_id`              | NVARCHAR     | ID of the product category from the ERP system.                                             |
-| `category`                 | NVARCHAR     | Name of the product category from the ERP system.                                           |
-| `subcategory`              | NVARCHAR     | Name of the product subcategory from the ERP system.                                        |
-| `maintenance`              | NVARCHAR     | Maintenance information for the product from the ERP system.                                |
-| `product_cost`             | INT          | Cost of the product from the CRM system.                                                    |
-| `product_line`             | NVARCHAR     | Product line the product belongs to from the CRM system.                                    |
-| `product_last_update_date` | DATE         | Last date when the product information was updated in the CRM system.                       |
+| `product_id`               | INT          | A unique numerical business key for the product, from the CRM system.                       |
+| `product_number`           | NVARCHAR     | Alphanumeric identifier for each product, from the CRM system.                              |
+| `product_name`             | NVARCHAR     | Name of the product, from the CRM system.                                                   |
+| `category_id`              | NVARCHAR     | A unique Alphanumeric identifier ID of the product category, from the ERP system.           |
+| `category`                 | NVARCHAR     | Name of the product category, from the ERP system.('Bikes','Clothing',...)                  |
+| `subcategory`              | NVARCHAR     | Name of the product subcategory, from the ERP system.Contains more details category         |
+| `maintenance`              | NVARCHAR     | Indicates if the product need maintenance,from ERP system. ('Yes','No')                     |
+| `product_cost`             | INT          | Cost of the product, from the CRM system.                                                   |
+| `product_line`             | NVARCHAR     | Product line the product belongs to, from the CRM system.('Mountain','Road',...)            |
+| `product_last_update_date` | DATE         | Last date when the product information was updated, from the CRM system.                    |
 
 ---
 
@@ -53,17 +53,17 @@ This view represents the sales data, linking customer and product dimensions to 
 
 ### Columns:
 
-| Column Name          | Data Type    | Description                                                                                 |
-|----------------------|--------------|---------------------------------------------------------------------------------------------|
-| `order_number`       | NVARCHAR     | Unique identifier for the sales order from the CRM system.                                  |
-| `product_key`        | BIGINT       | Foreign key from `gold.dim_products` representing the product involved in the sale.         |
-| `customer_key`       | BIGINT       | Foreign key from `gold.dim_customers` representing the customer making the purchase.        |
-| `order_date`         | DATE         | Date when the order was placed from the CRM system.                                         |
-| `shipping_date`      | DATE         | Date when the order was shipped from the CRM system.                                        |
-| `due_date`           | DATE         | Date when the order is expected to be delivered from the CRM system.                        |
-| `sales_amount`       | INT          | Total sales amount for the order from the CRM system.                                       |
-| `quantity`           | INT          | Quantity of products sold in the order from the CRM system.                                 |
-| `price`              | INT          | Price of the product sold in the order from the CRM system.                                 |
+| Column Name          | Data Type    | Description                                                                                                                  |
+|----------------------|--------------|------------------------------------------------------------------------------------------------------------------------------|
+| `order_number`       | NVARCHAR     | A unique alphanumeric identifier for the sales order, from the CRM system.                                                   |
+| `product_key`        | BIGINT       | Foreign key from `gold.dim_products` representing the product involved in the sale, it's a surrogate key in dim.products.    |
+| `customer_key`       | BIGINT       | Foreign key from `gold.dim_customers` representing the customer making the purchase, it's a surrogate key in dim.customers.  |
+| `order_date`         | DATE         | Date when the order was placed, from the CRM system.                                                                         |
+| `shipping_date`      | DATE         | Date when the order was shipped, from the CRM system.                                                                        |
+| `due_date`           | DATE         | Date when the order is expected to be delivered, from the CRM system.                                                        |
+| `sales_amount`       | INT          | Total sales amount for the order, from the CRM system.                                                                       |
+| `quantity`           | INT          | Quantity of products sold in the order, from the CRM system.                                                                 |
+| `price`              | INT          | Price of the product sold in the order, from the CRM system.                                                                 |
 
 ---
 
