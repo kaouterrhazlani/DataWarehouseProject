@@ -313,12 +313,15 @@ Ce script est particulièrement utile pour :
 - Alimenter une base de données ou un data warehouse avec des données historiques
 - Créer des rapports ou visualisations à partir de données PDF
 
-## Limitations
+## Limitations et Erreurs dans le Code Original
 
 1. **Format spécifique** : Le script est conçu pour un format PDF très spécifique (rapports ITRC)
 2. **Robustesse** : Peut échouer si la structure du PDF change
-3. **Typo** : Nom de colonne "RecorsReported" au lieu de "RecordsReported"
-4. **Méthode dépréciée** : `df.append()` est déprécié dans pandas récent
+3. **Fautes de frappe** :
+   - Ligne 29 : Commentaire "pfd file" au lieu de "pdf file"
+   - Ligne 226 : Docstring "Provied" au lieu de "Provides"
+   - Ligne 236 : Nom de colonne "RecorsReported" au lieu de "RecordsReported"
+4. **Méthode dépréciée** : `df.append()` est déprécié depuis pandas 1.4.0 (utiliser `pd.concat()` à la place)
 
 ## Conclusion
 
