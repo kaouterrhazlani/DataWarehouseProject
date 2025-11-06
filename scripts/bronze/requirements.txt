@@ -1,3 +1,0 @@
-# Python dependencies for PDF data extraction script
-pdfplumber>=0.9.0
-pandas>=1.5.0
